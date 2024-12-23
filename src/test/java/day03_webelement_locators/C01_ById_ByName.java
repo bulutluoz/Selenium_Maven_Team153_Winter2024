@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class C01_ById {
+public class C01_ById_ByName {
 
     public static void main(String[] args) throws InterruptedException {
 
