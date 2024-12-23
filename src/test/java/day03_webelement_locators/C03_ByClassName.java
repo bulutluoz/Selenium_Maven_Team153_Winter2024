@@ -54,13 +54,43 @@ public class C03_ByClassName {
 
 
         // ? bulunan urunlerin isimlerini yazdirin
+        System.out.println(bulunanUrunElementleriList);
+        // [[[ChromeDriver: chrome on mac (8426c5046f9d6745a35833af6a011aac)] -> class name: prod-img],
+        //  [[ChromeDriver: chrome on mac (8426c5046f9d6745a35833af6a011aac)] -> class name: prod-img],
+        //  [[ChromeDriver: chrome on mac (8426c5046f9d6745a35833af6a011aac)] -> class name: prod-img],
+        //  [[ChromeDriver: chrome on mac (8426c5046f9d6745a35833af6a011aac)] -> class name: prod-img]]
+
+        // Liste WebElementlerden olustugu icin direkt yazdiramayiz
+        // bir loop ile her bir WebElement'i ele alip
+        // uzerindeki yaziyi yazdirabiliriz
+
+        for (WebElement eachElement :bulunanUrunElementleriList){
+            System.out.println(eachElement.getText());
+        }
+        // yontem dogru ama isim elementi barindiran HTML elementlerin
+        // class attribute degerleri space icerdigi icin bu soruda kullanamadik
 
 
         // ilk urunu tiklayin
+        // listede 0.index'teki elementi click yapabiliriz
+
+        bulunanUrunElementleriList.get(0).click();
 
 
-        // acilan urun sayfasindaki urun isminde
+        // acilan urun sayfasindaki urun detaylarinda
         // case sensitive olmadan "phone" kelimesi gectigini test edin
+
+        String expectedIsimIcerik = "phone";
+
+        WebElement urunDetayElementi = driver.findElement(By.className("prod-detail"));
+
+        String urunDetayi = urunDetayElementi
+                                        .getText()
+                                        .toLowerCase();
+
+        if (urunDetayi.contains(expectedIsimIcerik)){
+            System.out.println("Urun detay testi PASSED");
+        }else System.out.println("Urun detay testi FAILED");
 
 
         // sayfayi kapatin
