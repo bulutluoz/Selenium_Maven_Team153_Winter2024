@@ -20,7 +20,9 @@ public class C01_ById {
 
 
         // arama kutusunu locate edip, kaydedin
-        WebElement aramaKutusu = driver.findElement(By.id("global-search"));
+        // WebElement aramaKutusu = driver.findElement(By.id("global-search"));
+        WebElement aramaKutusu = driver.findElement(By.name("search"));
+
         // NoSuchElementException
         // driver diyor ki : Websayfasina gittim verdigin id'ye uygun bir Html Webelement yok
 
@@ -29,6 +31,7 @@ public class C01_ById {
 
         // arama yapilmasi icin ENTER tusuna basin
         aramaKutusu.submit();
+        Thread.sleep(5000);
 
         // sayfayi kapatin
         driver.quit();
